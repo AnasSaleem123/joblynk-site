@@ -90,15 +90,18 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-wrap items-center gap-x-6 gap-y-3"
             >
               {[
-                { value: '750M+', label: 'Candidate Profiles' },
-                { value: '180+', label: 'Countries' },
-                { value: '24/7', label: 'Autonomous Ops' },
+                { value: '750M+', label: 'Global Candidate Profiles' },
+                { value: '4000+', label: 'Data Signals' },
+                { value: '24/7', label: 'Autonomous Operations' },
+                { value: 'Enterprise', label: 'Ready' },
+                { value: 'Built By', label: 'Recruiters' },
+                { value: 'Designed', label: 'For Scale' },
               ].map(stat => (
                 <div key={stat.label} className="flex items-baseline gap-1.5">
-                  <span className="text-xl font-black text-[#0058A0]" style={{ fontFamily: 'Inter Tight, Inter, sans-serif', letterSpacing: '-0.03em' }}>{stat.value}</span>
+                  <span className="text-base font-black text-[#0058A0]" style={{ fontFamily: 'Inter Tight, Inter, sans-serif', letterSpacing: '-0.03em' }}>{stat.value}</span>
                   <span className="text-xs text-slate-500 font-medium">{stat.label}</span>
                 </div>
               ))}
