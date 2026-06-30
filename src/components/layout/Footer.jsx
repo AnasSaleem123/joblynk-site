@@ -43,8 +43,23 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide uppercase" style={{ letterSpacing: '0.08em' }}>Product</h4>
             <ul className="space-y-3">
-              {['The Hiring OS', 'How It Works', 'Platform Tour', 'Integrations'].map(item => (
-                <li key={item}><a href="#" className="text-white/60 hover:text-white text-sm transition-colors">{item}</a></li>
+              {[
+                { label: 'The Hiring OS', href: '/' },
+                { label: 'How It Works', href: '/#how-it-works' },
+                { label: 'Platform Tour', href: '/' },
+                { label: 'Integrations', href: '#' }
+              ].map(item => (
+                <li key={item.label}>
+                  {item.href.startsWith('/') ? (
+                    <Link to={item.href} className="text-white/60 hover:text-white text-sm transition-colors">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a href={item.href} className="text-white/60 hover:text-white text-sm transition-colors">
+                      {item.label}
+                    </a>
+                  )}
+                </li>
               ))}
             </ul>
           </div>

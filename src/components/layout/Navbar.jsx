@@ -26,6 +26,17 @@ export default function Navbar() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const location = useLocation();
 
+  const handleNavClick = (e, targetId) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, null, `#${targetId}`);
+      }
+    }
+  };
+
   // Solution pages have dark hero backgrounds — use white nav text when transparent
   const isDarkHero = location.pathname.startsWith('/solutions');
   const useLightText = isDarkHero && !scrolled;
@@ -81,8 +92,8 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <a href="#how-it-works" className={`text-sm font-medium transition-colors ${useLightText ? 'text-white hover:text-white/80' : 'text-[#0058A0] hover:text-[#30B0F0]'}`}>How It Works</a>
-            <a href="#about" className={`text-sm font-medium transition-colors ${useLightText ? 'text-white hover:text-white/80' : 'text-[#0058A0] hover:text-[#30B0F0]'}`}>About</a>
+            <Link to="/#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className={`text-sm font-medium transition-colors ${useLightText ? 'text-white hover:text-white/80' : 'text-[#0058A0] hover:text-[#30B0F0]'}`}>How It Works</Link>
+            <Link to="/#about" onClick={(e) => handleNavClick(e, 'about')} className={`text-sm font-medium transition-colors ${useLightText ? 'text-white hover:text-white/80' : 'text-[#0058A0] hover:text-[#30B0F0]'}`}>About</Link>
           </div>
 
           {/* Desktop CTAs */}
@@ -130,8 +141,8 @@ export default function Navbar() {
                 {s.label}</Link>
               )}
               </div>
-              <a href="#how-it-works" className="block text-sm font-medium text-[#0058A0] py-2">How It Works</a>
-              <a href="#about" className="block text-sm font-medium text-[#0058A0] py-2">About</a>
+              <Link to="/#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className="block text-sm font-medium text-[#0058A0] py-2">How It Works</Link>
+              <Link to="/#about" onClick={(e) => handleNavClick(e, 'about')} className="block text-sm font-medium text-[#0058A0] py-2">About</Link>
               <div className="flex flex-col gap-2 pt-2 border-t border-[#E2E8F0]">
                 <a href="https://app.joblynk.ai/login" className="text-sm font-medium text-[#0058A0] py-2">Login</a>
                 <a href="https://app.joblynk.ai/get-started" className="text-sm font-semibold text-[#0058A0] border border-[#0058A0] px-4 py-2 rounded-lg text-center">Get Started</a>

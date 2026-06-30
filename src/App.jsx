@@ -17,6 +17,8 @@ import MspVms from './pages/solutions/MspVms';
 import Rpo from './pages/solutions/Rpo';
 import Government from './pages/solutions/Government';
 import Startups from './pages/solutions/Startups';
+import ScrollToTop from './components/ScrollToTop';
+
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -63,6 +65,7 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
+          <ScrollToTop />
           <AuthenticatedApp />
         </Router>
         <Toaster />
