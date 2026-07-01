@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   // logLevel: 'error', // Suppress warnings, only show errors
   preview: {
-    allowedHosts: ['nt.joblynk.ai']
+    allowedHosts: ['joblynk.ai', 'www.joblynk.ai', 'nt.joblynk.ai']
   },
   plugins: [
     base44({
